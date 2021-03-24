@@ -56,13 +56,14 @@ var addCube = function(x,y,z,w){
 
 var depth = 10;
 var w = 200/depth;
+var nn = 0;
+var oo = 0;
 for(var i = 0; i < depth; i++){
     for(var j = 0; j < depth; j++){
         for(var k = 0; k < depth; k++){
             var x = w*i-100;
             var y = w*j-100;
             var z = w*k-100;
-            console.log(x,y,z);
             var corners = [
                 [x,y,z],
                 [x,y,z+w],
@@ -81,12 +82,20 @@ for(var i = 0; i < depth; i++){
                 if(r < 100)ins = true;
                 if(r > 100)out = true;
             }
+            if(!out)oo++;
+            if(ins)nn++;
             if(!(ins && out))continue;
             //console.log(x+100,y+100,z+100,w);
             addCube(x+100,y+100,z+w/2,w);
         }
     }
 }
+
+
+var r = 100;
+var volume = ((nn+oo)/2)*w*w*w;//n is outside
+var pi = 3/4*volume/r/r/r;
+document.getElementById("display").innerHTML = "π = "+pi;
 
 
 
@@ -135,7 +144,6 @@ var genXmat = function(a){
 
 
 var cube = document.querySelector(".cube");
-console.log(cube);
 
 
 var resultMatrix = [
