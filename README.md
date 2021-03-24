@@ -1,1 +1,3 @@
-This is a default readme that is created by the htmlinit command
+Calculating π using voxels in 3d space
+
+demo https://codepen.io/MartianLord/full/qBRdKZw
