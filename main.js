@@ -209,7 +209,7 @@ var animate = function(t){
     var dt = (t - start)/1000;
     start = t;
     if(down){
-        if(Date.now() - t0 > 100){
+        if(Date.now() - t0 > 300){//original: 100
             mvx = 0;
             mvy = 0;
             console.log("cancelled");
